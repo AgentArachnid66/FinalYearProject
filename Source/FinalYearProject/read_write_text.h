@@ -6,11 +6,13 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Misc/FileHelper.h"
 #include "Misc/Paths.h"
+#include "UObject/Class.h"
 #include "read_write_text.generated.h"
 
 /**
  * 
  */
+
 UCLASS()
 class FINALYEARPROJECT_API Uread_write_text : public UBlueprintFunctionLibrary
 {
@@ -21,7 +23,5 @@ public:
 
 		UFUNCTION(BlueprintCallable, Category = "Custom", meta = (Keywords = "SaveTxt"))
 		static bool SaveTxt(FString SaveTextB, FString FileNameB);
-
-		 
 	
 };
