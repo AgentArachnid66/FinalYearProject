@@ -7,12 +7,16 @@ Where I feel a lot of educational games go wrong is that they focus too much on 
 
 <b>Latest Commit Update</b>
 
-Got the scoring system working, though not in the way I would have liked. The way it works is that the material editor defines the masks, which can be viewed individually using the 'Control' parameter. <b> This process only works correctly when in play mode. </b>  These can be then saved to a texture via the button in the details panel for BP_Wall instances, where you also select the texture that you want to save the mask to. When the player disengages with the turret, it calculates the player's score by using the UV locations that the player hit on the render target and matches that location to a pixel on the texture. As both the texture and the render target only use a Red channel, it is a simple multiplication then a multiplication offset based off the degree of burn that corresponds with that mask. No Burns/First Degree = 1, Second Degree/Third Degree = 10. 
+Got the control system working, by using one component that will be attached to the leap hands, and another that will follow that component. The follower component will be unable to leave a boundary, and I take the position from the centre of that boundary, normalize between -0.5 and 0.5 and apply that value to the turrets controls. While I was testing this, I found that it breaks when I rotate the boundary mesh, or when that boundary isn't a simple primitive. To fix this, I'm planning on implementing a system where the follower checks if it's still on the mesh and add an offset to it's position if it has strayed from the boundary. A smaller update is that I got the loading effect to only effect the elements that I want to using a custom stencil and depth value, which I can then isolate in the post processing and apply said processing solely onto that. Although at the moment, it produces an occulusion effect with the meshes silhouette in the scene. 
+
+<b> Plans </b>
+- For the JSON data collector, I'm planning to have an actor that will have links to all relevant actors, from which it can draw the relevant data at appropriate times.
+- For the UI, I had the idea to have a pause menu implemented, so that when you look at the underside of your wrist it will appear there with clickable buttons and everything. I chose the underside of the wrist as it is relatively unexpected to occur during natural gameplay if implemented correctly.
 
 <b> Next Steps </b>
 
-My next steps for this project are:
-- To make a UI for the hologram screen
-- To create an option for applying cling film to the burnt area
-- Design and implement a way to gather JSON data
-- Design and create a proper level for the main game area
+- Make a proper UI on the console mesh
+- Fix the aforementioned bugs
+- Design and create a level
+- Create a JSON data collector actor
+My next steps
