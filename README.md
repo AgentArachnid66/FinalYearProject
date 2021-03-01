@@ -5,18 +5,18 @@ This project will be looking into how to effectively use a Virtual Environment t
 
 Where I feel a lot of educational games go wrong is that they focus too much on the educational section of the genre. I think that a new approach is needed which is the teaching should be integrated into the game rather than the game integrated into the education. I want to make this game with the education integrated right into the main gameplay loop, while it being subtle in it's intent. 
 
-<b>Commit Update #2</b>
+<b>Commit Update #3</b>
 
-Got the control system working, by using one component that will be attached to the leap hands, and another that will follow that component. The follower component will be unable to leave a boundary, and I take the position from the centre of that boundary, normalize between -0.5 and 0.5 and apply that value to the turrets controls. While I was testing this, I found that it breaks when I rotate the boundary mesh, or when that boundary isn't a simple primitive. To fix this, I'm planning on implementing a system where the follower checks if it's still on the mesh and add an offset to it's position if it has strayed from the boundary. A smaller update is that I got the loading effect to only effect the elements that I want to using a custom stencil and depth value, which I can then isolate in the post processing and apply said processing solely onto that. Although at the moment, it produces an occulusion effect with the meshes silhouette in the scene. 
+Got the Data Collector working, with it updating and sending the relevant data to a JSONbin. Also, changed the post process effect by changing the fade in effect to exclude the vector noise and make the border smoother. The controls are still not working appropriately and I still don't have a proper level but now I can properly focus on them as the other major milestones have been met. 
 
 <b> Plans </b>
-- For the JSON data collector, I'm planning to have an actor that will have links to all relevant actors, from which it can draw the relevant data at appropriate times.
 - For the UI, I had the idea to have a pause menu implemented, so that when you look at the underside of your wrist it will appear there with clickable buttons and everything. I chose the underside of the wrist as it is relatively unexpected to occur during natural gameplay if implemented correctly.
+- If I have the time, make a login system so that I can appropriate aggregate the data by user and it will help to improve my analysis. I've looked briefly into this and think that using either GameSparks, FireBase or an Amazon Web Service Database would be a good fit for this purpose.
+- Look into other JSON storages solutions. My current logic involves retrieving the entire JSON document, look for the objects array, retrieve the entire array and then append an object onto the end of that and finally upload the entire document. This has the obvious issue of scalability as the longer the document becomes, the bigger the file that each user will need to download and upload and that seems unnecessary. This was a proof of concept at most, so I'm looking into alternative solutions like Microsoft's Blob storage, or writing my own API that will handle it for me instead of doing it within UE4. However, this is lower on my list of priorities as I need to get a level together and fix my controls.
 
 <b> Next Steps </b>
 
 - Make a proper UI on the console mesh
 - Fix the aforementioned bugs
 - Design and create a level
-- Create a JSON data collector actor
-My next steps
+- Possibly start recording the vocal instructions
