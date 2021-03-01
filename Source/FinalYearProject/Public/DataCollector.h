@@ -16,9 +16,6 @@ public:
 	// Sets default values for this actor's properties
 	ADataCollector();
 
-	// Reference to the turret to get the score
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = 'Data Collection')
-		int test;
 
 protected:
 	// Called when the game starts or when spawned
