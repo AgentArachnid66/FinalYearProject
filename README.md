@@ -5,9 +5,9 @@ This project will be looking into how to effectively use a Virtual Environment t
 
 Where I feel a lot of educational games go wrong is that they focus too much on the educational section of the genre. I think that a new approach is needed which is the teaching should be integrated into the game rather than the game integrated into the education. I want to make this game with the education integrated right into the main gameplay loop, while it being subtle in it's intent. 
 
-<b>Commit Update #3</b>
+<b>Commit Update #4</b>
 
-Got the Data Collector working, with it updating and sending the relevant data to a JSONbin. Also, changed the post process effect by changing the fade in effect to exclude the vector noise and make the border smoother. The controls are still not working appropriately and I still don't have a proper level but now I can properly focus on them as the other major milestones have been met. 
+Updated the player controls to make it look nicer and easier to use. I also scrapped the scoring system and am going for a simplier version with just seeing how much of the wall they hit. I'll still record the centre of each hit for my data analysis, but it will not have any baring on the player's score. Although, I'll see what happens if I tell the player that it will have an impact on their score and see if this suggestion has any impact on their priorities. 
 
 <b> Plans </b>
 - For the UI, I had the idea to have a pause menu implemented, so that when you look at the underside of your wrist it will appear there with clickable buttons and everything. I chose the underside of the wrist as it is relatively unexpected to occur during natural gameplay if implemented correctly.
