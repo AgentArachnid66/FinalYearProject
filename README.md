@@ -7,11 +7,13 @@ Where I feel a lot of educational games go wrong is that they focus too much on 
 
 <b>Commit Update #5</b>
 
-Updated the scoring system so that the pressure used is taken into account. I did this by using a normal distribution from a range of 0-1 in the form of a curve asset, and I sampled this curve by normalising the current pressure between 0-1. Whatever value is given is then multiplied with the brush material's texture to control the intensity of that frame's brush stroke. This controls the scoring system as it uses each pixel's data, so if it's darker then it gives less points. I've also been working on a level in a separate project file so that it doesn't clog up this one with unnecessary assets. That level is nearly completed and once it is, I just need to migrate the map over. 
+I have updated the visuals, by using a Niagara System and material parameter collection. The system samples the static mesh and reconstructs it using particles, when it is then replaced by the actual mesh. I also updated the table as I wasn't happy with how it looked. I'm counting this as progress towards my level, of which is nearly complete as all I need to do is model the wall that I am going to burn and place the rest of the mid level and small details. I'm also a lot more clear in what I want my UI to look like, especially the UI coming from the table as that will be 3D. As I have an unlocking animation with the particles, I also need to make sure that the player can't use the controls until the animation is complete.
 
 <b> Plans </b>
-- For the UI, I had the idea to have a pause menu implemented, so that when you look at the underside of your wrist it will appear there with clickable buttons and everything. I chose the underside of the wrist as it is relatively unexpected to occur during natural gameplay if implemented correctly.
-- Look into other JSON storages solutions. I'm starting to work on my own API that will communicate with MongoDB and upload the data there. It's a more professional method of doing it.
+- Look into other JSON storages solutions. I'm starting to work on my own API that will communicate with MongoDB and upload the data there. It's a more professional method of doing it. I'll also look into alternatives, such as plugins that other people have made for this exact purpose.
+- Start writing python script to pull collected data and perform relevant analysis
+
+
 <b> Next Steps </b>
 
 - Complete the level
@@ -20,3 +22,4 @@ Updated the scoring system so that the pressure used is taken into account. I di
      - Main Menu
      - Loading Screen (Loading levels, calculating score, uploading data, etc)
      - Score Screen
+- 
