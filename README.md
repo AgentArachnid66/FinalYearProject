@@ -5,12 +5,13 @@ This project will be looking into how to effectively use a Virtual Environment t
 
 Where I feel a lot of educational games go wrong is that they focus too much on the educational section of the genre. I think that a new approach is needed which is the teaching should be integrated into the game rather than the game integrated into the education. I want to make this game with the education integrated right into the main gameplay loop, while it being subtle in it's intent. 
 
-<b>Commit Update #5</b>
+<b>Commit Update #6</b>
 
-I've made a basic API in Node.JS that will access my Mongo DataBase for me and perform login/signup, hold the analytics and whatever else I may need. I tested the basic signup in the engine, which basically just uploads them to a new document in my collection. I still need to implement logging in and, more crucially, hashing and other web security measures. As at the moment I'm the only user and for purely development purposes, I'll focus on getting the relevant data uploaded to the database before the logging in and security measures. 
+Buiding on my API, I made a route for when I want to calculate the scores based on the resulting render targets from the player. To do this, I exported the render target to a png file on the computer, got the file path to this file and my code takes the image as an array of pixel values. I simply add up all the Red Channel pixel values and divide the result by 256. After testing it, the performance increase was unbelievable and I'm glad that I dedicated time to learning how to do this. I've also started working on a way to make sure that all relvant data has been returned to the data collector before uploading, by using event dispatchers. I'll move onto the UI and expanding the environment.
 
 <b> Plans </b>
 - Finish off the MongoDB API
+- Finish the level
 - Start writing python script to pull collected data and perform relevant analysis
 
 <b> Next Steps </b>
