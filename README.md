@@ -7,10 +7,10 @@ Where I feel a lot of educational games go wrong is that they focus too much on 
 
 <b>Commit Update #6</b>
 
-Buiding on my API, I made a route for when I want to calculate the scores based on the resulting render targets from the player. To do this, I exported the render target to a png file on the computer, got the file path to this file and my code takes the image as an array of pixel values. I simply add up all the Red Channel pixel values and divide the result by 256. After testing it, the performance increase was unbelievable and I'm glad that I dedicated time to learning how to do this. I've also started working on a way to make sure that all relvant data has been returned to the data collector before uploading, by using event dispatchers. I'll move onto the UI and expanding the environment.
+I've used my expanded API to build a UI that serves as a proof of concept that I can use UE4 to do all the things that I require in terms of communicating with my Mongo Database. I can create new accounts and log into existing ones. I can create new users on the right account and log into the correct existing ones. I can also handle of this independently from the UI as I'm using a custom Game Instance to handle it and event dispatchers to handle the callback. As I'm working with Leap Motion and I really don't want to take the players out of it with using a physical keyboard, I'm taking advantage of my theme and environment and plan on buiding my world space UI as a holographic interface.
 
 <b> Plans </b>
-- Finish off the MongoDB API
+- Encrypt and hash data
 - Finish the level
 - Start writing python script to pull collected data and perform relevant analysis
 
@@ -20,5 +20,8 @@ Buiding on my API, I made a route for when I want to calculate the scores based 
 - Possibly start recording the vocal instructions
 - Start planning UI for:
      - Main Menu
+     - Signup Menu
+     - Login Menu
+     - Create/Select User
      - Loading Screen (Loading levels, calculating score, uploading data, etc)
      - Score Screen
