@@ -5,10 +5,19 @@ This project will be looking into how to effectively use a Virtual Environment t
 
 Where I feel a lot of educational games go wrong is that they focus too much on the educational section of the genre. I think that a new approach is needed which is the teaching should be integrated into the game rather than the game integrated into the education. I want to make this game with the education integrated right into the main gameplay loop, while it being subtle in it's intent and presence. 
 
-<b>Commit Update #11</b>
+<b>Commit Update #12</b>
 
-Updated the World Space UI and I have been working on the updated controls for a while now. It's now more fitting in with theme and I have abandoned the holotable idea as I don't think it'd fit as well as I initially thought. I'm going to try out another idea which is a drone that follows the player around, displays the menus when prompted and also projects the controls. It could also give verbal instructions and act as a sort of instructor. 
+Started on the prototype drone, with a script that will allow it to move around the world dynamically. At this commit, it can move to keep a certain distance from objects and the player, but there are a few limitations which I'll go over in my bug report. I added in a new font to be used with the text renderer on the pressure controls so that it fits in more.
 
+<b> Bugs/Improvements </b>
+(Fixes are to be tried, tested and updated in the next commit. This is mainly to help me to track the main bugs)
+- If drone is between the player and a blocking object and the distance between player and said object is too small, then the drone will clip and go through the blocking object.
+    - Fix: When the distance goes below a threshold, the drone will relocate to a different position to the player.
+- Current script limits the drone repositioning to a radius around the object's location which is identical for each object in the level
+    - Fix: raycast to find the surface face and use that as the overlap tolerance per object.
+- When the drone approaches the overlap tolerance threshold, it will start jumping so that the position flips between being within the threshold and not. 
+    - Fix: When it approaches the threshold, clamp it to that threshold
+ - Haven't been able to test how the code handles multiple objects blocking the drone
 
 <b> Plans </b>
 - Encrypt and hash data
