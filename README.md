@@ -5,14 +5,12 @@ This project will be looking into how to effectively use a Virtual Environment t
 
 Where I feel a lot of educational games go wrong is that they focus too much on the educational section of the genre. I think that a new approach is needed which is the teaching should be integrated into the game rather than the game integrated into the education. I want to make this game with the education integrated right into the main gameplay loop, while it being subtle in it's intent and presence. 
 
-<b>Commit Update #13</b>
+<b>Commit Update #14</b>
 
-Completely scrapped the original code and came up with a new and improved system that built upon the idea of the previous one. I'm using linetraces in a spherical pattern to sample the surrounding environment and to move away from obstacles I am using a parametric sphere equation to control it's distance to it's parent. I'm not parenting the drone to the player but it should keep in mind it's distance from it and where it is in relation to it. The first problem I had was to sample evenly distributed points on a sphere. If I had used the wrong sort of sphere then I would be sampling too much at the poles and not enough at the middle. I found an algorithm called the Fibonacci Sphere and that gave me a really good result. In my testng environment, I am using 1000 samples which I'll later test to find the right amount to optimise it. I then save the direction vector from hit location to an array and then i find the average direction vector. In my old code, I would have just found the target position and used a VInterp node to go over there. However, since in this new code, I am using a parametric equation to control it, I'm going to be a bit smarter than that. There are three variables ofr me to control, the radius, the height and the position around the circle intersection. To get the radius, I added the dot product of the vector from the drone to the parent and the average direction vector, which I then add to the existing value of the radius to get the right value. The position on the circle was done by taking to dot product of the forward vector of the drone, rotated by the 90 Degrees, and the average direction vector. This is then multiplied by an offset to gain some control over it, then clamped between -2 pi and positive 2 pi. The height is done similarly, except it uses the up vector.
-
-This new and improved approach is a lot better as it relies upon the hit locations of a ray instead of the location of an object to calculate it's path. I plan on improving it by adding in some desired values for it to try and reach if it isn't blocked by anything because right now if something blocks it and moves it upwards, when that object is removed it stays at that height instead of moving down.
+Further improved the code by adding some target values for the drone for when there is nothing blocking it. The way that I have it set up is that when there are no longer any blocking objects, it will choose the closest location and begin to travel there. I also added a quick function to rotate the mesh of the drone towards a target actor, which can be changed out at runtime. I'll add a latent function that will slowly transition the drone's rotation between the old and new target actor so it isn't an instant snap. This is unlikely to happen but it's good to have a plan for it anyway.
 
 <b> Bugs/Improvements </b>
-- Drone is still jumping at the threshold but that can be tweaked with the offsets and interlopation speeds
+
 
 <b> Plans </b>
 - Encrypt and hash data
